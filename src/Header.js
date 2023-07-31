@@ -1,12 +1,19 @@
 import React from 'react';
 
-import logo from './images/logo.svg';
+//function Header({ children, className }) {
+function Header(props) {
+    const { children, ...extra } = props;
 
-function Header({ }) {
+    // children is what's inside the <Header> tag
+    // extra is a JSON object with { className: 'top-header', id: 'header', title: 'This is the header' }
+    
     return (
-        <header>
-            <h1>Joe Blow's Website 🚀</h1>
-            <img src={logo} width={50} height={50} />
+        /*<header className={props.className} id={props.id}>
+                {props.children}
+        </header>*/
+
+        <header {...extra}>
+            {children}
         </header>
     );
 }
