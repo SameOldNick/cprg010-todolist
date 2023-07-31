@@ -4,8 +4,6 @@ const TodoForm = ({ onTaskAdded }) => {
     const onSubmit = (event) => {
         event.preventDefault();
 
-        debugger;
-        console.log(event.target.task.value);
         onTaskAdded(event.target.task.value);
     };
 
