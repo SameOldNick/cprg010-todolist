@@ -1,9 +1,12 @@
 import React from "react";
 
+import tasksData from './data/tasks.json';
+
 const TodoForm = (props) => {
   const { onTaskAdded } = props;
 
   const [errors, setErrors] = React.useState([]);
+  //const [task, setTask] = React.useState('');
 
   const onFormSubmitted = (event) => {
     event.preventDefault();
@@ -41,6 +44,8 @@ const TodoForm = (props) => {
   const onTaskChanged = (event) => {
     const value = event.target.value;
 
+    //setTask(value);
+
     const newErrors = [];
 
     // Testing logic
@@ -53,10 +58,26 @@ const TodoForm = (props) => {
     setErrors(newErrors);
   }
 
+  const generateRandomTask = () => {
+    const tasksAry = tasksData.tasks;
+
+    const randomIndex = (Math.random() * (tasksAry.length - 1)).toFixed(0);
+
+    const randomTask = tasksAry[randomIndex];
+
+    inputRef.current.value = randomTask;
+
+    //alert(randomTask);
+  }
+
+  const inputRef = React.createRef();
+
   return (
     <form onSubmit={onFormSubmitted}>
-      <input type="text" name="task" id="task" onChange={onTaskChanged} />
+      <input ref={inputRef} type="text" name="task" id="task" /*value={task}*/ onChange={onTaskChanged} />
       <button type="submit" disabled={hasErrors}>Add Task</button>
+
+      <button type='button' onClick={generateRandomTask}>Random Task</button>
 
       <ul style={ulStyles}>
         {errorEls}
