@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from './Header';
 import Footer from './Footer';
+import FunFact from './FunFact';
 import TodoCategory from './TodoCategory';
 
 import logo from './images/logo.svg';
@@ -18,6 +19,8 @@ const App = () => {
         <h1>Joe Blow's Website 🚀🐨</h1>
         <img src={logo} width={55} height={55} />
       </Header>
+
+      <FunFact />
 
       <TodoCategory title='Home' />
       <TodoCategory title='Work' />
