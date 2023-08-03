@@ -1,5 +1,7 @@
 import React from "react";
 
+import Task from "./Task";
+
 const TodoList = ({ tasks }) => {
   const tasksEl = [];
 
@@ -35,7 +37,7 @@ const TodoList = ({ tasks }) => {
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
 
-    const taskEl = <li>{task}</li>;
+    const taskEl = <Task>{task}</Task>;
 
     tasksEl.push(taskEl);
   }
