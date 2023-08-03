@@ -1,32 +1,25 @@
 import React from 'react';
 
-import Header from './Header';
-import Footer from './Footer';
-import FunFact from './FunFact';
-import TodoCategory from './TodoCategory';
-
-import logo from './images/logo.svg';
-
-import './App.css';
+import './assets/App.css';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import FunFactPage from './pages/FunFactPage';
+import TodoListPage from './pages/TodoListPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
 
-  
-
   return (
     <>
-      <Header className='top-header' id='header' title='This is the header'>
-        <h1>Joe Blow's Website 🚀🐨</h1>
-        <img src={logo} width={55} height={55} />
-      </Header>
+      <BrowserRouter>
+        <Routes>
 
-      <FunFact />
+          <Route path='fun-fact' element={<FunFactPage />} />
+          <Route path='todo-list' element={<TodoListPage />} />
+          <Route index element={<Navigate to='/todo-list' />} />
 
-      <TodoCategory title='Home' />
-      <TodoCategory title='Work' />
-      <TodoCategory title='School' />
-      
-      <Footer />
+          <Route path='*' element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

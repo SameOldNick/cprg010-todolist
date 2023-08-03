@@ -1,6 +1,6 @@
 import React from "react";
 
-import tasksData from './data/tasks.json';
+import tasksData from '../data/tasks.json';
 
 const TodoForm = (props) => {
   const { onTaskAdded } = props;

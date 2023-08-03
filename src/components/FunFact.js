@@ -1,4 +1,5 @@
 import React from 'react';
+import { getFactFromApi } from '../utils/api';
 
 const FunFact = (props) => {
     // Initialize fact state variable
@@ -6,20 +7,10 @@ const FunFact = (props) => {
 
     // Needs to be in a seperate function
     const getFact = async () => {
-        // Make the API request
-        const response = await fetch("https://uselessfacts.jsph.pl/api/v2/facts/random", {
-            "method": "GET"
-        });
-
-        const json = await response.json();
-
-        const newFact = json.text;
-
-        // Set as a state variable
-        setFact(newFact);
-
-        return () => null;
-    };
+        const fact = await getFactFromApi();
+        
+        setFact(fact);
+    }
 
     // Hook on to useEffect
     React.useEffect(() => {
