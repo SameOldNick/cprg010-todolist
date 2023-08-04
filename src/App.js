@@ -2,6 +2,7 @@ import React from "react";
 
 import "./assets/App.css";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import { ThemeProvider } from "./components/ThemeContext";
 
@@ -12,9 +13,14 @@ import NotFoundPage from "./pages/NotFoundPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
+  //document.body.classList.add('dark-mode');
 
   return (
     <>
+      <Helmet>
+        <title>My To Do List</title>
+        <body className="dark-mode" />
+      </Helmet>
       <ThemeProvider>
         <BrowserRouter>
           <Routes>
