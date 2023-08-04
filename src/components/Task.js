@@ -1,7 +1,10 @@
 import React from 'react';
+import { ThemeContext } from './ThemeContext';
 
 const Task = (props) => {
     const { children } = props;
+
+    const { theme } = React.useContext(ThemeContext);
 
     const [completed, setCompleted] = React.useState(false);
 
@@ -16,7 +19,8 @@ const Task = (props) => {
     console.log(completed);
 
     const taskStyle = {
-        textDecoration: completed ? 'line-through' : 'none'
+        textDecoration: completed ? 'line-through' : 'none',
+        color: theme === 'light' ? 'black' : 'white'
     }
 
     return (

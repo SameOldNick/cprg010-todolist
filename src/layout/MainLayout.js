@@ -1,37 +1,47 @@
-import React from 'react';
+import React from "react";
 
-import logo from '../assets/images/logo.svg'
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
+import logo from "../assets/images/logo.svg";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { ThemeContext } from '../components/ThemeContext';
+
+import { Link } from "react-router-dom";
+
+import { Container } from 'reactstrap'
 
 const MainLayout = (props) => {
-    const { children } = props;
+  const { children } = props;
 
-    return (
-        <>
-            <Header className='top-header' id='header' title='This is the header'>
-                <div>
-                    <h1>Joe Blow's Website 🚀🐨</h1>
+  const { theme } = React.useContext(ThemeContext);
 
-                    <div>
-                        <p>
-                            <Link to='/fun-fact'>Fun Fact</Link>
-                            <span> | </span>
-                            <Link to='/todo-list'>To Do List</Link>
-                        </p>
-                    </div>
-                </div>
-                <img src={logo} width={55} height={55} />
+  const styles = {
+    backgroundColor: theme === 'light' ? 'white' : 'black'
+  }
 
+  return (
+    <>
+      <Container fluid className="mt-2" style={styles}>
+        <Header className="top-header" id="header" title="This is the header">
+          <div>
+            <h1>Joe Blow's Website 🚀🐨</h1>
 
-            </Header>
+            <div>
+              <p>
+                <Link to="/fun-fact">Fun Fact</Link>
+                <span> | </span>
+                <Link to="/todo-list">To Do List</Link>
+              </p>
+            </div>
+          </div>
+          <img src={logo} width={55} height={55} />
+        </Header>
 
-            {children}
+        {children}
 
-            <Footer />
-        </>
-    );
-}
+        <Footer />
+      </Container>
+    </>
+  );
+};
 
 export default MainLayout;
