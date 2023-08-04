@@ -75,9 +75,10 @@ const TodoForm = (props) => {
   return (
     <form onSubmit={onFormSubmitted}>
       <input ref={inputRef} type="text" name="task" id="task" /*value={task}*/ onChange={onTaskChanged} />
-      <button type="submit" disabled={hasErrors}>Add Task</button>
+      <button type="submit" className='btn btn-primary' disabled={hasErrors}>Add Task</button>
 
-      <button type='button' onClick={generateRandomTask}>Random Task</button>
+      <button type='button' className='btn btn-secondary' onClick={generateRandomTask}>Random Task</button>
+      <Button color="dark" onClick={generateRandomTask}>Random Task</Button>
 
       <ul style={ulStyles}>
         {errorEls}

@@ -6,6 +6,8 @@ import FunFactPage from './pages/FunFactPage';
 import TodoListPage from './pages/TodoListPage';
 import NotFoundPage from './pages/NotFoundPage';
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const App = () => {
 
   return (
